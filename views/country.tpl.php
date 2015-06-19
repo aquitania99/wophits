@@ -8,7 +8,7 @@
         $arr = $lastFmData['topartists']['artist'];
         $records_per_page = 5;
         $records = count($arr);
-        $thisPage = filter_input_array(INPUT_SERVER['PHP_SELF']);//INPUT_SERVER$_SERVER['PHP_SELF'];
+        $thisPage = filter_input_array(INPUT_SERVER,'PHP_SELF');
         //Calculate number of $lastPage
         $lastPage = ceil($records/$records_per_page);
         //Condition inputs/set default
