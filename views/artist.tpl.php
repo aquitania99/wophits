@@ -1,14 +1,13 @@
 <div class="container">
-    <h3 class="text-capitalize"><?php echo $title.' '.$country;?></h3>
-    <p class="lead">Top of Amazing Bands and Artists!</p>
-    <p><a class="btn btn-default" href="/" role="button"><span class="glyphicon glyphicon-search"></span> Search again</a></p>
+    <h3 class="text-capitalize"><?= $title ?> <small> Top Tracks in <strong><?= $country ?></strong>!</small></h3>
+    <p><a class="btn btn-default" href="country" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to <?= $country;?> results</a></p>
     <div class="row">
         <div class="col-xs-12 col-md-12">
         <?php
-        $arr = $lastFmData['topartists']['artist'];
+        $arr = $artistData['toptracks']['track'];
         $records_per_page = 5;
         $records = count($arr);
-        $thisPage = filter_input_array(INPUT_SERVER['PHP_SELF']);//INPUT_SERVER$_SERVER['PHP_SELF'];
+        $thisPage = filter_input_array(INPUT_SERVER['PHP_SELF']);
         //Calculate number of $lastPage
         $lastPage = ceil($records/$records_per_page);
         //Condition inputs/set default
@@ -39,29 +38,22 @@
         {
             $end = $records - 1;
         }
-        
         // Display Array from $start to $end
         for ( $i = 0; $i <= $end; $i++ )
         {
+//            echo '<div class="col-sm-2 pull-left" style="margin:1px solid #BEBEBE;margin:1em;">';
             echo '<div class="col-sm-2 pull-left" style="margin:1em;">';
             echo '<table class="table table-bordered table-condensed">';
             echo '<tr><td>';
-            echo '<h5>'.$arr[$i]['name'].'</h5>';
-            echo '<p>Number of listeners <strong>'.$arr[$i]['listeners'].'</strong></p>';
-            for ($j=0; $j < count($arr[$i]['image']); $j++) 
-                {
-                    if($arr[$i]['image'][$j]['size'] == 'large') 
-                    {
-                        $artistName = str_replace(" ","%20",$arr[$i]['name']);
-                        echo '<p><a class="btn" href="artist?name='.$arr[$i]['name'].'" role="button">'
-                        . '<img src="'.$arr[$i]['image'][$j]['#text'].'"></a></p>';
-                    }
-                }
+            echo '<h4>'.$arr[$i]['name'].'</h4>';
+            echo '<p>Playcount: <strong>'.$arr[$i]['playcount'].'</strong>';
+            echo '<p><small><a href="'.$arr[$i]['url'].'" target="_blank">Go to URL</a></small></p>';
+//            echo '</div>';
             echo '</td></tr></table></div>';
         }
         ?>
         </div>
-        <div class="clearfix pull-left text-center">
+        <div class="clearfix pull-left" style="width:100%;">
         <!--first/prev pagination hyperlinks-->
         <?php
         if ($page_number == 1) 
@@ -70,9 +62,9 @@
         } 
         else 
         {
-           echo " <a href='?page_number=1'>FIRST</a> ";
+           echo " <a href='?name=".$title."&page_number=1'>FIRST</a> ";
            $prevpage = $page_number-1;
-           echo " <a href='?page_number=$prevpage'>PREV</a> ";
+           echo " <a href='?name=".$title."&page_number=$prevpage'>PREV</a> ";
         }
         // Display current page or pages
         echo " ( Page $page_number of $lastPage ) ";
@@ -85,8 +77,8 @@
         else 
         {
            $nextpage = $page_number+1;
-           echo " <a href='?page_number=$nextpage'>NEXT</a> ";
-           echo " <a href='?page_number=$lastPage'>LAST</a> ";
+           echo " <a href='?name=".$title."&page_number=$nextpage'>NEXT</a> ";
+           echo " <a href='?name=".$title."&page_number=$lastPage>LAST</a> ";
         }
         ?>
         </div>

@@ -1,26 +1,27 @@
 <?php
+// Start the session
+session_start();
 //
+require 'MusicApi.php';
+//
+$get = filter_input_array(INPUT_GET);
+//
+$searchMusic = new MusicApi(); 
 $post = filter_input_array(INPUT_POST);
 //$data   = array();    // array to pass back data
 if ($post['submit'] == 'country') //Country to search for.
 {
-    require 'apiConn.php';
     $country = $post['inputCountry'];
-    //
-    $result = getArtistsByCountry($country);
+    $result = $searchMusic->getArtistsByCountry($country);
     $musicData = json_decode($result,true);
-    // show a message of success and provide a true success variable
-//    if (!empty($musicData))
-//    {
-//        $data['success'] = true;
-//        $data['message'] = 'Success!';
-//        $data['response'] = $musicData;
-//    }
-//    else
-//    {
-//        $data['success'] = false;
-//        $data['location'] = 'NA';
-//    }
+    $_SESSION['country'] = $country;
+    $_SESSION['musicData'] = $musicData;
 }
-// return all our data to an AJAX call
-//print json_encode($data);
+elseif ($get['url'] == 'artist') //Artist to search for.
+{
+    $artistName = str_replace(' ', '%20', $get['name']);
+    $_SESSION['name'] = $artistName;
+    $result = $searchMusic->getArtists($artistName);
+    $artistData = json_decode($result,true);
+    return $artistData;
+}

@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/smedina/Code/wop-hits/controllers/artistController.php</file>
             <file>file:/Users/smedina/Code/wop-hits/views/layout.tpl.php</file>
             <file>file:/Users/smedina/Code/wop-hits/views/home.tpl.php</file>
             <file>file:/Users/smedina/Code/wop-hits/library/apiConn.php</file>
             <file>file:/Users/smedina/Code/wop-hits/controllers/CountryController.php</file>
             <file>file:/Users/smedina/Code/wop-hits/views/country.tpl.php</file>
+            <file>file:/Users/smedina/Code/wop-hits/views/artist.tpl.php</file>
             <file>file:/Users/smedina/Code/wop-hits/js/processData.js</file>
+            <file>file:/Users/smedina/Code/wop-hits/library/config.inc</file>
             <file>file:/Users/smedina/Code/wop-hits/controllers/HomeController.php</file>
             <file>file:/Users/smedina/Code/wop-hits/library/processForm.php</file>
+            <file>file:/Users/smedina/Code/wop-hits/library/Request.php</file>
         </group>
     </open-files>
 </project-private>
