@@ -8,7 +8,8 @@ class CountryController {
     public function indexAction()
     {
         require 'library/processForm.php';
-        if (empty($error)){
+        if (empty($error))
+        {
             $this->country = $_SESSION['country'];
             $this->musicData = $_SESSION['musicData'];
             return new View('country',['title' => 'Search by Country', 'country'=>$this->country, 'lastFmData'=>$this->musicData]);
@@ -18,7 +19,6 @@ class CountryController {
             $this->error = $error;
             return new View('country',['title' => 'Search by Country', 'country'=>$country, 'lastFmData'=>'','lastFmDataError'=>$this->error['message']]);
         }
-        
     }
 
 }

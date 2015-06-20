@@ -30,7 +30,7 @@ elseif ($get['url'] == 'artist') //Artist to search for.
     $_SESSION['name'] = $artistName;
     $result = $searchMusic->getArtists($artistName);
     $artistData = json_decode($result,true);
-    if ($artistData['error'] >= 2){
+    if (isset($artistData['error'])){
         $error = $artistData;
         return $error;
         session_unset();

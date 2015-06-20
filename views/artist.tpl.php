@@ -4,11 +4,11 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
         <?php
-        if ($lastFmDataError) {
+        if (isset($artistDataError)) {
             echo '<div class="alert alert-warning alert-dismissible col-md-4" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-                <h5><span class="glyphicon glyphicon-exclamation-sign"></span>  Sorry '.$lastFmDataError.' was found.</h5>';
+                <h5><span class="glyphicon glyphicon-exclamation-sign"></span>  Sorry '.$artistDataError.' was found.</h5>';
         }
         else 
         {
