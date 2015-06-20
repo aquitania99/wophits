@@ -15,7 +15,14 @@ if ($post['submit'] == 'country') //Country to search for.
     $result = $searchMusic->getArtistsByCountry($country);
     $musicData = json_decode($result,true);
     $_SESSION['country'] = $country;
-    $_SESSION['musicData'] = $musicData;
+    if (isset($musicData['error'])){
+        $error = $musicData;
+        return $error;
+        session_unset();
+    }
+    else {
+        $_SESSION['musicData'] = $musicData;
+    }
 }
 elseif ($get['url'] == 'artist') //Artist to search for.
 {
@@ -23,5 +30,12 @@ elseif ($get['url'] == 'artist') //Artist to search for.
     $_SESSION['name'] = $artistName;
     $result = $searchMusic->getArtists($artistName);
     $artistData = json_decode($result,true);
-    return $artistData;
+    if ($artistData['error'] >= 2){
+        $error = $artistData;
+        return $error;
+        session_unset();
+    }
+    else {
+        return $artistData;
+    }
 }
