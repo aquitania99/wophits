@@ -47,14 +47,13 @@
             {
                 $end = $records - 1;
             }
-
             // Display Array from $start to $end
-            for ( $i = 0; $i <= $end; $i++ )
+            for ( $i=$start; $i <= $end; $i++ )
             {
                 echo '<div class="col-sm-2 pull-left" style="margin:1em;">';
                 echo '<table class="table table-bordered table-condensed">';
                 echo '<tr><td>';
-                echo '<h5>'.$arr[$i]['name'].'</h5>';
+                echo '<h5><span class="badge">'.($i+1).'</span> '.$arr[$i]['name'].'</h5>';
                 echo '<p>Number of listeners <strong>'.$arr[$i]['listeners'].'</strong></p>';
                 for ($j=0; $j < count($arr[$i]['image']); $j++) 
                     {
