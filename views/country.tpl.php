@@ -50,7 +50,7 @@
             // Display Array from $start to $end
             for ( $i=$start; $i <= $end; $i++ )
             {
-                echo '<div class="col-sm-2 pull-left" style="margin:1em;">';
+                echo '<div class="col-sm-2">';
                 echo '<table class="table table-bordered table-condensed">';
                 echo '<tr><td>';
                 echo '<h5><span class="badge">'.($i+1).'</span> '.$arr[$i]['name'].'</h5>';
@@ -68,7 +68,8 @@
             }
             ?>
             </div>
-            <div class="clearfix pull-left text-center">
+        <div class="clearfix" style="padding:2em;"></div>
+            <div class="text-center">
             <!--first/prev pagination hyperlinks-->
             <?php
             if ($page_number == 1) 
