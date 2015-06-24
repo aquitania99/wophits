@@ -24,7 +24,7 @@ if ($post['submit'] == 'country') //Country to search for.
         $_SESSION['musicData'] = $musicData;
     }
 }
-elseif ($get['url'] == 'artist') //Artist to search for.
+elseif (strpos($get['url'], 'artist') !== false) //Artist to search for.
 {
     $artistName = str_replace(' ', '%20', $get['name']);
     $_SESSION['name'] = $artistName;

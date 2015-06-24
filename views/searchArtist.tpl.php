@@ -1,8 +1,6 @@
 <div class="container">
-    <h3 class="text-capitalize"><?= $name .' '. $title ?></h3>
-    <p>
-        <?= $button ?>
-    </p>
+    <h3 class="text-capitalize"><?= $title ?> <small> <strong>Top Tracks</strong>!</small></h3>
+    <p><a class="btn btn-default" href="/" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to home</a></p>
     <div class="row">
         <div class="col-xs-12 col-md-12">
         <?php
@@ -73,9 +71,9 @@
             } 
             else 
             {
-               echo " <a href='?name=".$name."&page_number=1'>FIRST</a> ";
+               echo " <a href='?name=".$title."&page_number=1'>FIRST</a> ";
                $prevpage = $page_number-1;
-               echo " <a href='?name=".$name."&page_number=$prevpage'>PREV</a> ";
+               echo " <a href='?name=".$title."&page_number=$prevpage'>PREV</a> ";
             }
             // Display current page or pages
             echo " ( Page $page_number of $lastPage ) ";
@@ -88,8 +86,8 @@
             else 
             {
                $nextpage = $page_number+1;
-               echo " <a href='?name=".$name."&page_number=$nextpage'>NEXT</a> ";
-               echo " <a href='?name=".$name."&page_number=$lastPage'>LAST</a> ";
+               echo " <a href='?name=".$title."&page_number=$nextpage'>NEXT</a> ";
+               echo " <a href='?name=".$title."&page_number=$lastPage>LAST</a> ";
             }
         }
         ?>

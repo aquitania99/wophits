@@ -28,6 +28,14 @@
                         <!--<li class="active"><a href="/">Home <span class="glyphicon glyphicon-home"></span></a></li>-->
                         <li class="active"><a href="/">Wop-Hits <span class="glyphicon glyphicon-equalizer"></span></a></li>
                     </ul>
+                    <div id="navbar" class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-right" method="get" action="artist/search">
+                        <div class="form-group">
+                            <input type="text" placeholder="Artist" id="name" name="name" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Search by Artist <span class="glyphicon glyphicon-headphones"</button>
+                    </form>
+                </div><!--/.navbar-collapse -->
                 </div>
             </div>
         </div>
