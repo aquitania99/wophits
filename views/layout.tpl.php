@@ -29,7 +29,7 @@
                         <li class="active"><a href="/">Wop-Hits <span class="glyphicon glyphicon-equalizer"></span></a></li>
                     </ul>
                     <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" method="get" action="artist/search">
+                        <form class="navbar-form navbar-right" method="get" action="<?= 'http://'.$_SERVER['HTTP_HOST']?>/artist/search">
                         <div class="form-group">
                             <input type="text" placeholder="Artist" id="name" name="name" class="form-control">
                         </div>
